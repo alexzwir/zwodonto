@@ -1,0 +1,9 @@
+.DS_Store
+.env
+.idea 
+.zwodonto
+*.sqlite
+*pyc 
+__pycache__
+.vscode/
+db.sqlite3
