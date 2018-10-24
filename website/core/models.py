@@ -17,4 +17,9 @@ class ContactModel(models.Model):
         verbose_name_plural = "Contatos"
 
     def __str__(self):
-        return smart_text("{} | {} | {}".format(self.contact_name,self.contact_sent_date,self.contact_email))
+        raw_data = str(self.contact_sent_date)
+        normalized_data = raw_data[0:10]
+        day_normalized = normalized_data[8:10]
+        month_normalized = normalized_data[5:7]
+        new_date_normalied = day_normalized + "/" +month_normalized
+        return smart_text("{} | {} | {}").format(self.contact_name, new_date_normalied, self.contact_email)
