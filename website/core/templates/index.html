@@ -381,21 +381,21 @@
                 </ul>
             </div>
             <div class="col-md-4">
-                <h3 class="mt-0 mt-sm10 mb-10">Nos envie uma mensagem:</h3>
+                <h3 class="mt-0 mt-sm10 mb-10">Deixe uma mensagem:</h3>
                 <!-- Contact Form -->
                 <form id="contact_form" name="contact_form" class="" action="includes/sendmail.php" method="post">
                 <div class="row">
                     <div class="col-sm-6">
                     <div class="form-group">
                         <label>Nome <small>*</small></label>
-                        <input name="form_name" class="form-control" type="text" placeholder="Enter Name" required="">
+                        <!-- <input name="form_name" class="form-control" type="text" placeholder="Enter Name" required=""> -->
                         {{ form.contact_name }}
                     </div>
                     </div>
                     <div class="col-sm-6">
                     <div class="form-group">
                         <label>Email <small>*</small></label>
-                        <input name="form_email" class="form-control required email" type="email" placeholder="Enter Email">
+                        <!-- <input name="form_email" class="form-control required email" type="email" placeholder="Enter Email"> -->
                         {{ form.contact_email }}
                     </div>
                     </div>
@@ -405,14 +405,14 @@
                     <div class="col-sm-6">
                     <div class="form-group">
                         <label>Assunto <small>*</small></label>
-                        <input id="form_subject" name="form_subject" class="form-control required" type="text" placeholder="Enter Subject">
+                        <!-- <input id="form_subject" name="form_subject" class="form-control required" type="text" placeholder="Enter Subject"> -->
                         {{ form.contact_subject }}
                     </div>
                     </div>
                     <div class="col-sm-6">
                     <div class="form-group">
                         <label>Telefone</label>
-                        <input id="form_phone" name="form_phone" class="form-control" type="text" placeholder="Enter Phone">
+                        <!-- <input id="form_phone" name="form_phone" class="form-control" type="text" placeholder="Enter Phone"> -->
                         {{ form.contact_phone }}
                     </div>
                     </div>
@@ -420,7 +420,7 @@
     
                 <div class="form-group">
                     <label>Mensagem</label>
-                    <textarea name="form_message" class="form-control required" rows="5" placeholder="Enter Message"></textarea>
+                    <!-- <textarea name="form_message" class="form-control required" rows="5" placeholder="Enter Message"></textarea> -->
                     {{ form.contact_message }}
                 </div>
                 <div class="form-group">
