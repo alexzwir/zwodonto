@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from .forms import ContactForm
 
 # Create your views here.
 def home(request):
-    return render(request,"index.html",{})
+    form = ContactForm()
+    return render(request,"index.html",{"form":form})

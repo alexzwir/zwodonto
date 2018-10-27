@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load staticfiles %}
+{% load static %}
 
 {% block content %}  
   <!-- Start main-content -->
@@ -14,7 +14,6 @@
             <div class="row">
               <div class="col-sm-6 col-md-4 col-md-offset-8">
                 <h3 class="bg-theme-colored p-15 pl-30 mb-0 mt-40 text-white">Appoinment Here</h3>
-                
                 <form id="appointment_form" name="appointment_form" class="bg-deep p-30" method="post" action="includes/appointment.php" novalidate="novalidate">
                   <div class="row">
                     <div class="col-sm-12">
@@ -390,12 +389,14 @@
                     <div class="form-group">
                         <label>Nome <small>*</small></label>
                         <input name="form_name" class="form-control" type="text" placeholder="Enter Name" required="">
+                        {{ form.contact_name }}
                     </div>
                     </div>
                     <div class="col-sm-6">
                     <div class="form-group">
                         <label>Email <small>*</small></label>
                         <input name="form_email" class="form-control required email" type="email" placeholder="Enter Email">
+                        {{ form.contact_email }}
                     </div>
                     </div>
                 </div>
@@ -405,12 +406,14 @@
                     <div class="form-group">
                         <label>Assunto <small>*</small></label>
                         <input id="form_subject" name="form_subject" class="form-control required" type="text" placeholder="Enter Subject">
+                        {{ form.contact_subject }}
                     </div>
                     </div>
                     <div class="col-sm-6">
                     <div class="form-group">
                         <label>Telefone</label>
                         <input id="form_phone" name="form_phone" class="form-control" type="text" placeholder="Enter Phone">
+                        {{ form.contact_phone }}
                     </div>
                     </div>
                 </div>
@@ -418,6 +421,7 @@
                 <div class="form-group">
                     <label>Mensagem</label>
                     <textarea name="form_message" class="form-control required" rows="5" placeholder="Enter Message"></textarea>
+                    {{ form.contact_message }}
                 </div>
                 <div class="form-group">
                     <input name="form_botcheck" class="form-control" type="hidden" value="" />
@@ -453,8 +457,7 @@
             </div>
             </div>
         </div>
-    </section>
-    
+    </section>    
   </div>
   <!-- end main-content -->
  {% endblock %}
