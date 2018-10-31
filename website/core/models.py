@@ -25,12 +25,12 @@ class ContactModel(models.Model):
         return smart_text("{} | {} | {}").format(self.contact_name, new_date_normalied, self.contact_email)
 
 class AppoinmentModel(models.Model):
-    appoinment_name = models.CharField(max_length=30)
-    appoinment_email = models.CharField(max_length=30)
-    appoinment_date = models.CharField(max_length=30)
-    appoinment_phone = models.CharField(max_length=30)
-    appoinment_message = models.CharField(max_length=30)
-    appoinment_sent_date = models.DateTimeField(max_length=35,default=timezone.now)
+    appoinment_name = models.CharField(max_length=30,verbose_name="Nome do paciente")
+    appoinment_email = models.CharField(max_length=30,verbose_name="Email")
+    appoinment_date = models.CharField(max_length=50,verbose_name="Data da consulta")
+    appoinment_phone = models.CharField(max_length=30,verbose_name="Telefone")
+    appoinment_message = models.CharField(max_length=30,verbose_name="Mensagem")
+    appoinment_sent_date = models.DateTimeField(max_length=35,default=timezone.now,verbose_name="Mensagem enviada em")
 
     class Meta:
         verbose_name = "Consulta"

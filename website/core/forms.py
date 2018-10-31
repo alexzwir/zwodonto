@@ -9,17 +9,7 @@ class ContactForm(forms.Form):
 
 class AppoinmentForm(forms.Form):
     appoinment_name = forms.CharField(max_length=50,label="",widget=forms.TextInput(attrs={'placeholder': 'Digite seu nome','size': '50','class':'form-control', 'name':'appoinment_name','type':'text','required':''}))
-    appoinment_email = forms.CharField(max_length=50,label="",widget=forms.TextInput(attrs={'placeholder': 'Digite seu email','size': '50','class':'form-control required email','name':'appoinment_email','type':'email'}))
-    appoinment_date = forms.CharField(max_length=50,label="",widget=forms.TextInput(attrs={'placeholder': 'Data da Consulta','size': '50','class':'form-control','id':'appoinment_date','name':'appoinment_date','type':'date'}))
+    appoinment_email = forms.CharField(max_length=50,label="",widget=forms.TextInput(attrs={'placeholder': 'Digite seu email','size': '50','class':'form-control required email','name':'appoinment_email','type':'text'}))
+    appoinment_date = forms.CharField(max_length=50,label="",widget=forms.DateInput(attrs={'placeholder': 'Data da Consulta','size': '50','class':'form-control','id':'appoinment_date','name':'appoinment_date','type':'date'}))
     appoinment_phone = forms.CharField(max_length=50,label="",widget=forms.TextInput(attrs={'placeholder': 'Digite seu telefone','size': '50','class':'form-control','id':'appoinment_phone','name':'appoinment_phone','type':'text'}))
     appoinment_message = forms.CharField(max_length=50,label="",widget=forms.Textarea(attrs={'placeholder': 'Deixe sua mensagem','size': '50','class':'form-control required','name':'appoinment_message','rows':2}))
-
-
-"""
-contact_name = models.CharField(max_length=30)
-contact_email = models.CharField(max_length=30)
-contact_phone = models.CharField(max_length=30)
-contact_subject = models.CharField(max_length=30)
-contact_message = models.CharField(max_length=30)
-contact_sent_date = models.DateTimeField(max_length=35,default=timezone.now)
-"""
