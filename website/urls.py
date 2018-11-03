@@ -20,5 +20,6 @@ from website.core import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('marcando_consulta', views.appoinment_saving, name='appoinment_saving'),
+    path('enviando_mensagem', views.sending_message),
     path('admin/', admin.site.urls),
 ]

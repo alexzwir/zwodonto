@@ -435,7 +435,7 @@
             <div class="col-md-4">
                 <h3 class="mt-0 mt-sm10 mb-10">Deixe uma mensagem:</h3>
                 <!-- Contact Form -->
-                <form id="contact_form" name="contact_form" class="" action="/" method="POST">
+                <form id="contact_form" name="contact_form" class="" action="/enviando_mensagem" method="POST" data-url="/enviando_mensagem">
                 {% csrf_token %}
                 <div class="row">
                     <div class="col-sm-6">
@@ -479,9 +479,47 @@
                 <div class="form-group">
                     <input name="form_botcheck" class="form-control" type="hidden" value="" />
                     <button type="submit" class="btn btn-dark btn-theme-colored btn-flat mr-5" data-loading-text="Please wait...">Enviar</button>
-                    <button type="reset" class="btn btn-default btn-flat btn-theme-colored">Reset</button>
+                    <button type="reset" class="btn btn-default btn-flat btn-theme-colored">Deletar</button>
                 </div>
                 </form>
+
+                <!-- <script>
+                    $(document).ready(function(){
+                      $(".success-message").hide();
+                      var $myForm = $("#appointment_form");
+                      $($myForm).submit(function(event){
+                        event.preventDefault();
+                        var $formData = $(this).serialize();
+                        var $thisURL = $myForm.attr('data-url') || window.location.href;
+                        console.log($formData);
+                        console.log($thisURL);
+                        $.ajax({
+                          method:"POST",
+                          url: $thisURL , 
+                          data:$formData,
+                          success: handleFormSuccess,
+                          error:handleFormError
+                        });
+                      });
+                      function handleFormSuccess(data, textStatus, jqXHR){
+                        console.log(data);
+                        console.log(textStatus);
+                        console.log(jqXHR);
+                        $(".appointment-form-fields").hide();
+                        $("#appointment_form").attr("style","height:513px");
+                        $(".success-message").fadeIn();
+                        $myForm[0].reset(); // reset form data
+                      }
+  
+                      function handleFormError(jqXHR, textStatus, errorThrown){
+                        console.log(jqXHR);
+                        console.log(textStatus);
+                        console.log(errorThrown);
+                      }
+                    });
+                  
+                  </script> -->
+  
     
                 <!-- Contact Form Validation-->
                 <!-- <script type="text/javascript">
