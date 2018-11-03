@@ -336,7 +336,7 @@
             <div class="row">
               <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
                 <h2 class="text-uppercase title">Nossos <span class="text-black-111"> Dentistas</span></h2>
-                <p class="text-uppercase letter-space-1">Dentitas com Mestrado e Doutorado pela principais faculdades do pais.</p>
+                <p class="text-uppercase letter-space-1">Dentitas com Mestrado e Doutorado pela principais entidades do pais.</p>
               </div>
             </div>
           </div>
@@ -438,14 +438,14 @@
                 <form id="contact_form" name="contact_form" class="" action="/enviando_mensagem" method="POST" data-url="/enviando_mensagem">
                 {% csrf_token %}
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 contact-form-fields">
                     <div class="form-group">
                         <label>Nome <small>*</small></label>
                         <!-- <input name="form_name" class="form-control" type="text" placeholder="Enter Name" required=""> -->
                         {{ form.contact_name }}
                     </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 contact-form-fields">
                     <div class="form-group">
                         <label>Email <small>*</small></label>
                         <!-- <input name="form_email" class="form-control required email" type="email" placeholder="Enter Email"> -->
@@ -455,14 +455,14 @@
                 </div>
                     
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 contact-form-fields" >
                     <div class="form-group">
                         <label>Assunto <small>*</small></label>
                         <!-- <input id="form_subject" name="form_subject" class="form-control required" type="text" placeholder="Enter Subject"> -->
                         {{ form.contact_subject }}
                     </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 contact-form-fields">
                     <div class="form-group">
                         <label>Telefone</label>
                         <!-- <input id="form_phone" name="form_phone" class="form-control" type="text" placeholder="Enter Phone"> -->
@@ -471,54 +471,57 @@
                     </div>
                 </div>
     
-                <div class="form-group">
+                <div class="form-group contact-form-fields">
                     <label>Mensagem</label>
                     <!-- <textarea name="form_message" class="form-control required" rows="5" placeholder="Enter Message"></textarea> -->
                     {{ form.contact_message }}
                 </div>
-                <div class="form-group">
+                <div class="form-group contact-form-fields">
                     <input name="form_botcheck" class="form-control" type="hidden" value="" />
                     <button type="submit" class="btn btn-dark btn-theme-colored btn-flat mr-5" data-loading-text="Please wait...">Enviar</button>
                     <button type="reset" class="btn btn-default btn-flat btn-theme-colored">Deletar</button>
                 </div>
+                <div class="success-message-contact">
+                    <h4>Muito obrigado pela mensagem.</h4>
+                    <p>Em breve, entraremos em contato!</p>
+                </div>
                 </form>
 
-                <!-- <script>
+                <script>
                     $(document).ready(function(){
-                      $(".success-message").hide();
-                      var $myForm = $("#appointment_form");
-                      $($myForm).submit(function(event){
+                      $(".success-message-contact").hide();
+                      var $myContactForm = $("#contact_form");
+                      $($myContactForm).submit(function(event){
                         event.preventDefault();
                         var $formData = $(this).serialize();
-                        var $thisURL = $myForm.attr('data-url') || window.location.href;
+                        var $thisURL = $myContactForm.attr('data-url') || window.location.href;
                         console.log($formData);
                         console.log($thisURL);
                         $.ajax({
                           method:"POST",
                           url: $thisURL , 
                           data:$formData,
-                          success: handleFormSuccess,
-                          error:handleFormError
+                          success: handleContactFormSuccess,
+                          error:handleContactFormError
                         });
                       });
-                      function handleFormSuccess(data, textStatus, jqXHR){
+                      function handleContactFormSuccess(data, textStatus, jqXHR){
                         console.log(data);
                         console.log(textStatus);
                         console.log(jqXHR);
-                        $(".appointment-form-fields").hide();
-                        $("#appointment_form").attr("style","height:513px");
-                        $(".success-message").fadeIn();
-                        $myForm[0].reset(); // reset form data
+                        $(".contact-form-fields").hide();
+                        $(".success-message-contact").fadeIn();
+                        $myContactForm[0].reset(); // reset form data
                       }
   
-                      function handleFormError(jqXHR, textStatus, errorThrown){
+                      function handleContactFormError(jqXHR, textStatus, errorThrown){
                         console.log(jqXHR);
                         console.log(textStatus);
                         console.log(errorThrown);
                       }
                     });
                   
-                  </script> -->
+                  </script>
   
     
                 <!-- Contact Form Validation-->
