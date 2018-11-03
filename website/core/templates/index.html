@@ -21,28 +21,28 @@
                 <h3 class="bg-theme-colored p-15 pl-30 mb-0 mt-40 text-white">Marque sua consulta:</h3>
                 <form id="appointment_form" name="appointment_form" class="bg-deep p-30" method="POST" action="/marcando_consulta" novalidate="novalidate" data-url="/marcando_consulta"> {% csrf_token %}
                   <div class="row">
-                    <div class="col-sm-12">
-                      <div class="form-group mb-10">
+                    <div class="col-sm-12 appointment-form-fields">
+                      <div class="form-group mb-10 appointment-form-fields">
                         <label>Nome</label>
                         <!-- <input name="form_name" class="form-control" required="" placeholder="Enter Name" aria-required="true" type="text"> -->
                         {{ form_appoinment.appoinment_name }}
                       </div>
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 appointment-form-fields">
                       <div class="form-group mb-10">
                         <label>Email</label>
                         <!-- <input name="form_email" class="form-control required email" placeholder="Enter Email" aria-required="true" type="email"> -->
                         {{ form_appoinment.appoinment_email }}
                       </div>
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 appointment-form-fields">
                       <div class="form-group mb-10">
                         <label>Data pretendida para a consulta</label>
                         <!-- <input name="form_appontment_date" class="form-control required date-picker" placeholder="Date" aria-required="true" type="text"> -->
                         {{ form_appoinment.appoinment_date }}
                       </div>
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 appointment-form-fields">
                       <div class="form-group mb-10">
                         <label>Telefone </label>
                         <!-- <input name="form_phone" class="form-control" placeholder="Enter Phone" aria-required="true" type="tel"> -->
@@ -50,18 +50,24 @@
                       </div>
                     </div>
                   </div>
-                  <div class="form-group mb-10">
+                  <div class="form-group mb-10 appointment-form-fields">
                     <label>Mensagem</label>
                     <!-- <textarea name="form_message" class="form-control required" placeholder="Enter Message" rows="5" aria-required="true"></textarea> -->
                     {{ form_appoinment.appoinment_message }}
                   </div>
-                  <div class="form-group mb-0 mt-20">
-                    <input name="form_botcheck" class="form-control" value="" type="hidden">
-                    <button type="submit" class="btn btn-block btn-theme-colored btn-sm mt-20 pt-10 pb-10 text-uppercase btn-appoinment" data-loading-text="Please wait...">Enviar</button>
+                  <div class="form-group mb-0 mt-20 appointment-form-fields">
+                    <!-- <input name="form_botcheck" class="form-control" value="" type="hidden"> -->
+                    <button type="submit" class="btn btn-block btn-theme-colored btn-sm mt-20 pt-10 pb-10 text-uppercase" data-loading-text="Please wait...">Enviar</button>
+                  </div>
+                  <div class="success-message d-none">
+                      <h4>Muito obrigado pela mensagem.</h4>
+                      <p>Em breve, entraremos em contato!</p>
                   </div>
                 </form>
+                
                 <script>
                   $(document).ready(function(){
+                    $(".success-message").hide();
                     var $myForm = $("#appointment_form");
                     $($myForm).submit(function(event){
                       event.preventDefault();
@@ -81,8 +87,9 @@
                       console.log(data);
                       console.log(textStatus);
                       console.log(jqXHR);
-                      // $(".btn-appoinment").hide();
-
+                      $(".appointment-form-fields").hide();
+                      $("#appointment_form").attr("style","height:513px");
+                      $(".success-message").fadeIn();
                       $myForm[0].reset(); // reset form data
                     }
 
