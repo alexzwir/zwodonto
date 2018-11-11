@@ -24,7 +24,6 @@
                     <div class="col-sm-12 appointment-form-fields">
                       <div class="form-group mb-10 appointment-form-fields">
                         <label>Nome</label>
-                        <!-- <input name="form_name" class="form-control" required="" placeholder="Enter Name" aria-required="true" type="text"> -->
                         {{ form_appoinment.appoinment_name }}
                       </div>
                     </div>
@@ -75,8 +74,10 @@
                     $form_phone.mask('0.0000-0000', {reverse: true});
 
                     $(".success-message").hide();
-                    var $myForm = $("#appointment_form");
+                  
                     $($myForm).submit(function(event){
+                      var $myForm = $("#appointment_form");
+                      $myForm.validate();
                       event.preventDefault();
                       var $formData = $(this).serialize();
                       var $thisURL = $myForm.attr('data-url') || window.location.href;
@@ -89,50 +90,27 @@
                         success: handleFormSuccess,
                         error:handleFormError
                       });
+                      
                     });
                     function handleFormSuccess(data, textStatus, jqXHR){
                       console.log(data);
                       console.log(textStatus);
                       console.log(jqXHR);
+                      $myForm[0].reset();
                       $(".appointment-form-fields").hide();
                       $("#appointment_form").attr("style","height:513px");
                       $(".success-message").fadeIn();
-                      $myForm[0].reset(); // reset form data
                     }
 
                     function handleFormError(jqXHR, textStatus, errorThrown){
                       console.log(jqXHR);
                       console.log(textStatus);
                       console.log(errorThrown);
+                    
                     }
                   });
                 
                 </script>
-
-                <!-- Appointment Form Validation -->
-                <!-- <script type="text/javascript">
-                  $("#appointment_form").validate({
-                    submitHandler: function(form) {
-                      var form_btn = $(form).find('button[type="submit"]');
-                      var form_result_div = '#form-result';
-                      $(form_result_div).remove();
-                      form_btn.before('&amp;lt;div id="form-result" class="alert alert-success" role="alert" style="display: none;"&amp;gt;&amp;lt;/div&amp;gt;');
-                      var form_btn_old_msg = form_btn.html();
-                      form_btn.html(form_btn.prop('disabled', true).data("loading-text"));
-                      $(form).ajaxSubmit({
-                        dataType:  'json',
-                        success: function(data) {
-                          if( data.status == 'true' ) {
-                            $(form).find('.form-control').val('');
-                          }
-                          form_btn.prop('disabled', false).html(form_btn_old_msg);
-                          $(form_result_div).html(data.message).fadeIn('slow');
-                          setTimeout(function(){ $(form_result_div).fadeOut('slow') }, 6000);
-                        }
-                      });
-                    }
-                  });
-                </script> -->
               </div>
             </div>
           </div>
