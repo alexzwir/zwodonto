@@ -67,6 +67,11 @@
                 
                 <script>
                   $(document).ready(function(){
+
+                    //Mascara nos campos telefone. 
+                    var $appoinment_phone = $("#appoinment_phone");
+                    $appoinment_phone.mask('0.0000-0000', {reverse: true});
+
                     $(".success-message").hide();
                     var $myForm = $("#appointment_form");
                     $($myForm).submit(function(event){
