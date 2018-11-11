@@ -554,4 +554,78 @@
     </section>    
   </div>
   <!-- end main-content -->
+
+
+  <script>
+    $(window).scroll(function(){
+      var scroll = $(window).scrollTop();
+      console.log(scroll);
+      if (scroll >= 802 && scroll <= 1320){
+        $(".home-class").removeClass("active");
+        $(".especilidades-class").removeClass("active");
+        $(".equipe-class").removeClass("active");
+        $(".comochegar-class").removeClass("active");
+        $(".contato-class").removeClass("active");
+
+        $(".sobre-nos-class").addClass("active");
+      }
+      else if (scroll >= 1321 && scroll <= 1939){
+        $(".home-class").removeClass("active");
+        $(".sobre-nos-class").removeClass("active");
+        $(".equipe-class").removeClass("active");
+        $(".comochegar-class").removeClass("active");
+        $(".contato-class").removeClass("active");
+        
+        $(".especilidades-class").addClass("active");
+      }
+      else if (scroll >= 1940 && scroll <= 2550){
+        $(".home-class").removeClass("active");
+        $(".sobre-nos-class").removeClass("active");
+        $(".especilidades-class").removeClass("active");
+        $(".comochegar-class").removeClass("active");
+        $(".contato-class").removeClass("active");
+    
+        $(".equipe-class").addClass("active");
+      }
+      else if (scroll >= 2551 && scroll <= 3008){
+        $(".home-class").removeClass("active");
+        $(".sobre-nos-class").removeClass("active");
+        $(".especilidades-class").removeClass("active");
+        $(".contato-class").removeClass("active");
+        $(".equipe-class").removeClass("active");
+
+        $(".comochegar-class").addClass("active");
+      }
+      else if (scroll >= 3009 && scroll <= 3500){
+        $(".home-class").removeClass("active");
+        $(".sobre-nos-class").removeClass("active");
+        $(".especilidades-class").removeClass("active");
+        $(".comochegar-class").removeClass("active");
+        $(".equipe-class").removeClass("active");
+
+        $(".contato-class").addClass("active");
+
+      }
+      else {
+        $(".contato-class").removeClass("active");
+        $(".sobre-nos-class").removeClass("active");
+        $(".especilidades-class").removeClass("active");
+        $(".comochegar-class").removeClass("active");
+        $(".equipe-class").removeClass("active");
+
+        $(".home-class").addClass("active");
+      }
+
+    });
+  
+  
+  
+  
+  
+  
+  </script>
+
+
+
+
  {% endblock %}
