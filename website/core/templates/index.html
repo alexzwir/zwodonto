@@ -7,12 +7,7 @@
 
 
     <!-- Section: home -->
-    <!-- <section id="home" class="divider parallax layer-overlay overlay-dark-3" data-bg-img="http://placehold.it/1920x1280"> -->
-    <!-- <section id="home" class="divider parallax layer-overlay overlay-dark-3" data-bg-img="/static/images/consulta_criancas.png">  -->
-      <section id="home" class="divider parallax layer-overlay overlay-dark-3" data-bg-img="/static/images/consulta_criancas_2.png"> 
-        <!-- <section id="home" class="divider parallax layer-overlay overlay-dark-3" data-bg-img="/static/images/consulta_1.jpg">  -->
-        <!-- <section id="home" class="divider parallax layer-overlay overlay-dark-3" data-bg-img="/static/images/consulta_2.jpg">  -->
-        <!-- <section id="home" class="divider parallax layer-overlay overlay-dark-3" data-bg-img="/static/images/consulta_3.jpg">  -->
+    <section id="home" class="divider parallax layer-overlay overlay-dark-3" data-bg-img="/static/images/consulta_criancas_2.png">    
       <div class="display-table">
         <div class="display-table-cell">
           <div class="container">
@@ -66,6 +61,8 @@
                 
                 <script>
                   $(document).ready(function(){
+                    var $myForm = $("#appointment_form");
+                    $myForm.validate();
 
                     //Mascara nos campos telefone. 
                     var $appoinment_phone = $("#appoinment_phone");
@@ -76,8 +73,7 @@
                     $(".success-message").hide();
                   
                     $($myForm).submit(function(event){
-                      var $myForm = $("#appointment_form");
-                      $myForm.validate();
+                      
                       event.preventDefault();
                       var $formData = $(this).serialize();
                       var $thisURL = $myForm.attr('data-url') || window.location.href;
@@ -96,10 +92,10 @@
                       console.log(data);
                       console.log(textStatus);
                       console.log(jqXHR);
-                      $myForm[0].reset();
                       $(".appointment-form-fields").hide();
                       $("#appointment_form").attr("style","height:513px");
                       $(".success-message").fadeIn();
+                      $myForm[0].reset();
                     }
 
                     function handleFormError(jqXHR, textStatus, errorThrown){
